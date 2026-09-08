@@ -267,8 +267,46 @@ st.markdown(
         }
 
         .stDownloadButton > button {
-            border-radius: 11px;
+            background: linear-gradient(90deg, #18a89d, #0ea5a6) !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(103, 232, 249, 0.24) !important;
+            border-radius: 11px !important;
             min-height: 40px;
+            font-weight: 750 !important;
+            transition: all 0.18s ease-in-out;
+            box-shadow: 0 8px 22px rgba(14, 165, 166, 0.16);
+        }
+
+        .stDownloadButton > button p,
+        .stDownloadButton > button span {
+            color: #ffffff !important;
+        }
+
+        .stDownloadButton > button:hover {
+            background: linear-gradient(90deg, #20b8ab, #14b8b8) !important;
+            color: #ffffff !important;
+            border-color: rgba(103, 232, 249, 0.50) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(14, 165, 166, 0.24);
+        }
+
+        .stDownloadButton > button:hover p,
+        .stDownloadButton > button:hover span {
+            color: #ffffff !important;
+        }
+
+        .stDownloadButton > button:disabled {
+            background: #163247 !important;
+            color: #8fa4ba !important;
+            border-color: rgba(148, 163, 184, 0.14) !important;
+            opacity: 1 !important;
+            box-shadow: none !important;
+            cursor: not-allowed !important;
+        }
+
+        .stDownloadButton > button:disabled p,
+        .stDownloadButton > button:disabled span {
+            color: #8fa4ba !important;
         }
 
         [data-testid="stDataFrame"] {
