@@ -1,0 +1,19 @@
+[global]
+developmentMode = false
+[theme]
+base = "light"
+primaryColor = "#087e8b"
+backgroundColor = "#f5f7fa"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#163a45"
+[server]
+port = 8501
+address = "127.0.0.1"
+enableCORS = true
+enableXsrfProtection = true
+[browser]
+serverPort = 8501
+serverAddress = "127.0.0.1"
+gatherUsageStats = false
+[logger]
+level = "warning"

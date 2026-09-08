@@ -1,0 +1,41 @@
+{
+  "source": "SIMULATED lifetimes, not AI4I timing labels",
+  "train_machines": 4000,
+  "test_machines": 1500,
+  "train_censored": 1915,
+  "train_events": {
+    "TWF": 810,
+    "HDF": 403,
+    "PWF": 314,
+    "OSF": 469,
+    "RNF": 89
+  },
+  "evaluation": "Independent machines; test follow-up complete through 24h; administrative survival beyond 24h unknown.",
+  "metrics": [
+    {
+      "model": "Competing-risk model",
+      "Integrated survival Brier (hours 1-24)": 0.1558125497493335,
+      "TWF CIF Brier at 24h": 0.21559897686784216,
+      "HDF CIF Brier at 24h": 0.09783487252211993,
+      "PWF CIF Brier at 24h": 0.07557353738812125,
+      "OSF CIF Brier at 24h": 0.11438142182124113,
+      "RNF CIF Brier at 24h": 0.02778979522408119
+    },
+    {
+      "model": "Constant-hazard baseline",
+      "Integrated survival Brier (hours 1-24)": 0.1885968259409375,
+      "TWF CIF Brier at 24h": 0.23440303000993884,
+      "HDF CIF Brier at 24h": 0.12093022111657281,
+      "PWF CIF Brier at 24h": 0.08081132979882413,
+      "OSF CIF Brier at 24h": 0.12478234695940332,
+      "RNF CIF Brier at 24h": 0.027851691703263064
+    }
+  ],
+  "policy_mean_oracle_cost_per_hour": {
+    "Learned schedule": 108.35978617236692,
+    "Fixed 12h": 110.69891225084434,
+    "Fixed 24h": 132.27698971753134,
+    "Oracle optimum": 108.30469227686356
+  },
+  "policy_evaluation": "Mean of 300 per-machine renewal cost rates under known simulator, default costs; not observed savings."
+}

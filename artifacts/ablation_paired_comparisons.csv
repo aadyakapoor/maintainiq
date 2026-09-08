@@ -1,0 +1,28 @@
+seed,scenario,comparison,Mean saving per hour,Paired 95% CI lower,Paired 95% CI upper
+42,Default costs,Single-event discrete minus Competing-risk discrete,0.2141681952645102,0.17362257455198626,0.2638165599728543
+42,Default costs,Single-event Cox minus Cause-specific Cox,0.3124288422269077,0.24381118157249881,0.3837750476620446
+42,Default costs,Same survival + pooled causes minus Competing-risk discrete,0.01739927397193098,0.000939941648261862,0.0361380160736358
+42,Equal cause costs,Single-event discrete minus Competing-risk discrete,0.1691623943596946,0.1451345230588644,0.19683832287376826
+42,Equal cause costs,Single-event Cox minus Cause-specific Cox,0.3199461361365215,0.2674335250607062,0.37528019059973605
+42,Equal cause costs,Same survival + pooled causes minus Competing-risk discrete,0.0,0.0,0.0
+42,High heat-failure cost,Single-event discrete minus Competing-risk discrete,0.2304087252912477,0.20009430342624432,0.2592031933060569
+42,High heat-failure cost,Single-event Cox minus Cause-specific Cox,-0.5260633323954776,-0.6283357973651204,-0.4165476034641866
+42,High heat-failure cost,Same survival + pooled causes minus Competing-risk discrete,0.2347679515347778,0.2059314507387924,0.26400449287792904
+43,Default costs,Single-event discrete minus Competing-risk discrete,0.35349807635038316,0.2937530589377196,0.4094639775922447
+43,Default costs,Single-event Cox minus Cause-specific Cox,0.03632431363522258,-0.007854465949365718,0.08054792245965382
+43,Default costs,Same survival + pooled causes minus Competing-risk discrete,0.12451478200714608,0.10784589611289726,0.14535371721807533
+43,Equal cause costs,Single-event discrete minus Competing-risk discrete,0.1541293507832399,0.12376885837741511,0.18241273437581218
+43,Equal cause costs,Single-event Cox minus Cause-specific Cox,0.010744523411658487,-0.02062995791424699,0.04339511006240861
+43,Equal cause costs,Same survival + pooled causes minus Competing-risk discrete,0.0,0.0,0.0
+43,High heat-failure cost,Single-event discrete minus Competing-risk discrete,0.7337655713324507,0.7007714952946459,0.770172700605727
+43,High heat-failure cost,Single-event Cox minus Cause-specific Cox,0.013366280721985212,-0.05979050932147324,0.08860327929194683
+43,High heat-failure cost,Same survival + pooled causes minus Competing-risk discrete,0.8364614011957867,0.8013958136774454,0.8727865261623485
+44,Default costs,Single-event discrete minus Competing-risk discrete,0.16816290362740488,0.13269538429911767,0.20235674437514012
+44,Default costs,Single-event Cox minus Cause-specific Cox,0.09830612981644635,0.07377810408785059,0.12799630334442966
+44,Default costs,Same survival + pooled causes minus Competing-risk discrete,-0.002053475430360258,-0.015977229592351663,0.012920437239169405
+44,Equal cause costs,Single-event discrete minus Competing-risk discrete,0.13293473984514081,0.11354025158478288,0.15379185217066213
+44,Equal cause costs,Single-event Cox minus Cause-specific Cox,0.17992105299850367,0.1534350767021738,0.20698746152516997
+44,Equal cause costs,Same survival + pooled causes minus Competing-risk discrete,0.0,0.0,0.0
+44,High heat-failure cost,Single-event discrete minus Competing-risk discrete,0.11037699591853525,0.04805783248371228,0.17488307383307572
+44,High heat-failure cost,Single-event Cox minus Cause-specific Cox,0.25840740087870373,0.19959647115024398,0.3105919307180803
+44,High heat-failure cost,Same survival + pooled causes minus Competing-risk discrete,0.06823286842683177,0.005430615910735558,0.13150554803853326

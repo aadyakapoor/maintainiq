@@ -1,0 +1,125 @@
+{
+  "split": "Separate seeded 80/20 stratified row split per label. Adjacent readings can mix; potentially optimistic. Overlaps the primary experiment, so it is not independent confirmation. Not used for tuning or dashboard models.",
+  "metrics": [
+    {
+      "failure": "TWF",
+      "model": "Calibrated forest",
+      "positives": 9,
+      "n": 2000,
+      "PR AUC (average precision)": 0.044028046652987166,
+      "ROC AUC": 0.9000502260170768,
+      "Brier": 0.0045542949338613255,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "TWF",
+      "model": "Prevalence baseline",
+      "positives": 9,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0045,
+      "ROC AUC": 0.5,
+      "Brier": 0.004479765624999998,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "HDF",
+      "model": "Calibrated forest",
+      "positives": 23,
+      "n": 2000,
+      "PR AUC (average precision)": 0.9922513686691379,
+      "ROC AUC": 0.9999120318444723,
+      "Brier": 0.0017544887678280026,
+      "Precision at 0.5": 0.95,
+      "Recall at 0.5": 0.8260869565217391,
+      "F1 at 0.5": 0.8837209302325582
+    },
+    {
+      "failure": "HDF",
+      "model": "Prevalence baseline",
+      "positives": 23,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0115,
+      "ROC AUC": 0.5,
+      "Brier": 0.011367749999999998,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "PWF",
+      "model": "Calibrated forest",
+      "positives": 19,
+      "n": 2000,
+      "PR AUC (average precision)": 0.9999999999999998,
+      "ROC AUC": 1.0,
+      "Brier": 1.360965739985544e-07,
+      "Precision at 0.5": 1.0,
+      "Recall at 0.5": 1.0,
+      "F1 at 0.5": 1.0
+    },
+    {
+      "failure": "PWF",
+      "model": "Prevalence baseline",
+      "positives": 19,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0095,
+      "ROC AUC": 0.5,
+      "Brier": 0.009409749999999998,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "OSF",
+      "model": "Calibrated forest",
+      "positives": 20,
+      "n": 2000,
+      "PR AUC (average precision)": 0.9916666666666669,
+      "ROC AUC": 0.99989898989899,
+      "Brier": 0.000863056950523517,
+      "Precision at 0.5": 1.0,
+      "Recall at 0.5": 0.9,
+      "F1 at 0.5": 0.9473684210526315
+    },
+    {
+      "failure": "OSF",
+      "model": "Prevalence baseline",
+      "positives": 20,
+      "n": 2000,
+      "PR AUC (average precision)": 0.01,
+      "ROC AUC": 0.5,
+      "Brier": 0.009900062500000001,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "RNF",
+      "model": "Calibrated forest",
+      "positives": 4,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0015730328724431059,
+      "ROC AUC": 0.33517034068136276,
+      "Brier": 0.00199610410989112,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "RNF",
+      "model": "Prevalence baseline",
+      "positives": 4,
+      "n": 2000,
+      "PR AUC (average precision)": 0.002,
+      "ROC AUC": 0.5,
+      "Brier": 0.001996015625,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    }
+  ]
+}

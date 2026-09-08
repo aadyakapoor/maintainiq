@@ -1,0 +1,163 @@
+{
+  "dataset": "UCI AI4I 2020 (synthetic benchmark)",
+  "rows": 10000,
+  "train_rows": 8000,
+  "test_rows": 2000,
+  "split": "First 80% in supplied row order train; last 20% held out. Not a machine-level or real temporal validation.",
+  "multiple_failure_rows": 24,
+  "aggregate_label_disagreements": 27,
+  "counts": {
+    "TWF": 46,
+    "HDF": 115,
+    "PWF": 95,
+    "OSF": 98,
+    "RNF": 19
+  },
+  "metrics": [
+    {
+      "failure": "TWF",
+      "model": "Calibrated forest",
+      "positives": 10,
+      "n": 2000,
+      "PR AUC (average precision)": 0.059547735437222866,
+      "ROC AUC": 0.9143216080402009,
+      "Brier": 0.004967521229529991,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "TWF",
+      "model": "Prevalence baseline",
+      "positives": 10,
+      "n": 2000,
+      "PR AUC (average precision)": 0.005,
+      "ROC AUC": 0.5,
+      "Brier": 0.004975250000000002,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "HDF",
+      "model": "Calibrated forest",
+      "positives": 0,
+      "n": 2000,
+      "PR AUC (average precision)": null,
+      "ROC AUC": null,
+      "Brier": 3.317497240866426e-06,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "HDF",
+      "model": "Prevalence baseline",
+      "positives": 0,
+      "n": 2000,
+      "PR AUC (average precision)": null,
+      "ROC AUC": null,
+      "Brier": 0.00020664062499999996,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "PWF",
+      "model": "Calibrated forest",
+      "positives": 10,
+      "n": 2000,
+      "PR AUC (average precision)": 0.9999999999999999,
+      "ROC AUC": 1.0,
+      "Brier": 9.35929690646252e-08,
+      "Precision at 0.5": 1.0,
+      "Recall at 0.5": 1.0,
+      "F1 at 0.5": 1.0
+    },
+    {
+      "failure": "PWF",
+      "model": "Prevalence baseline",
+      "positives": 10,
+      "n": 2000,
+      "PR AUC (average precision)": 0.005,
+      "ROC AUC": 0.5,
+      "Brier": 0.005006640624999999,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "OSF",
+      "model": "Calibrated forest",
+      "positives": 21,
+      "n": 2000,
+      "PR AUC (average precision)": 1.0000000000000002,
+      "ROC AUC": 1.0,
+      "Brier": 0.0002538900767244747,
+      "Precision at 0.5": 1.0,
+      "Recall at 0.5": 1.0,
+      "F1 at 0.5": 1.0
+    },
+    {
+      "failure": "OSF",
+      "model": "Prevalence baseline",
+      "positives": 21,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0105,
+      "ROC AUC": 0.5,
+      "Brier": 0.010390515625000001,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "RNF",
+      "model": "Calibrated forest",
+      "positives": 0,
+      "n": 2000,
+      "PR AUC (average precision)": null,
+      "ROC AUC": null,
+      "Brier": 5.4127809360227856e-06,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "RNF",
+      "model": "Prevalence baseline",
+      "positives": 0,
+      "n": 2000,
+      "PR AUC (average precision)": null,
+      "ROC AUC": null,
+      "Brier": 5.640625000000002e-06,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    },
+    {
+      "failure": "Machine failure",
+      "model": "Calibrated forest",
+      "positives": 39,
+      "n": 2000,
+      "PR AUC (average precision)": 0.7826438376826598,
+      "ROC AUC": 0.9547195962290302,
+      "Brier": 0.00906279140267118,
+      "Precision at 0.5": 1.0,
+      "Recall at 0.5": 0.46153846153846156,
+      "F1 at 0.5": 0.631578947368421
+    },
+    {
+      "failure": "Machine failure",
+      "model": "Prevalence baseline",
+      "positives": 39,
+      "n": 2000,
+      "PR AUC (average precision)": 0.0195,
+      "ROC AUC": 0.5,
+      "Brier": 0.01944375000000001,
+      "Precision at 0.5": 0.0,
+      "Recall at 0.5": 0.0,
+      "F1 at 0.5": 0.0
+    }
+  ],
+  "sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e"
+}

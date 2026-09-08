@@ -1,0 +1,905 @@
+{
+  "source": "SIMULATION ONLY; no AI4I event-time or censoring targets are fabricated.",
+  "protocol": "Seeds [42, 43, 44]; 3000 training and 1000 independent test machines per seed. Identical records within each comparison; no test tuning.",
+  "notes": [
+    "Discrete comparison uses identical person-period features and regularization, with binary versus six-category outcomes.",
+    "Cox comparison uses identical baseline covariates and ridge strength. Breslow ties; competing events are censored in each cause-specific fit.",
+    "Cox CIF integration uses piecewise-constant cause-rate allocation per hour. The simulator is discrete and not proportional hazards, so Cox is a deliberately different model family.",
+    "Aggregate models use observed training-event cause proportions for cost decisions; these allocated incidences are not learned cause-specific predictions. Censoring can affect those proportions.",
+    "The same-survival control keeps aggregate risk identical, isolating the value of cause allocation for unequal costs.",
+    "Each paired confidence interval bootstraps test profiles within one seed (500 replicates); it is conditional on the fitted model and simulator, not a universal confidence claim.",
+    "Costs are oracle expected per-profile renewal rates, not observed industrial savings. Each row includes all test machines.",
+    "RSF is not implemented. The requested direct survival comparison is implemented with Cox and discrete-hazard models."
+  ],
+  "metrics": [
+    {
+      "seed": 42,
+      "model": "Single-event discrete",
+      "Survival IBS": 0.15597736699182768,
+      "Mean cause IBS": 0.06469289004815452,
+      "TWF Brier at 24h": 0.24590897824743355,
+      "HDF Brier at 24h": 0.10994228002502414,
+      "PWF Brier at 24h": 0.0795070435504982,
+      "OSF Brier at 24h": 0.12826230547503054,
+      "RNF Brier at 24h": 0.031200419319345883
+    },
+    {
+      "seed": 42,
+      "model": "Competing-risk discrete",
+      "Survival IBS": 0.15496300264561821,
+      "Mean cause IBS": 0.061689661470245225,
+      "TWF Brier at 24h": 0.22423001676135346,
+      "HDF Brier at 24h": 0.09711049238896584,
+      "PWF Brier at 24h": 0.07688369113922167,
+      "OSF Brier at 24h": 0.12549251459800537,
+      "RNF Brier at 24h": 0.031169967037109267
+    },
+    {
+      "seed": 42,
+      "model": "Single-event Cox",
+      "Survival IBS": 0.15644615770799708,
+      "Mean cause IBS": 0.06471057330950308,
+      "TWF Brier at 24h": 0.24739432046598972,
+      "HDF Brier at 24h": 0.10965898782897235,
+      "PWF Brier at 24h": 0.07937915834045421,
+      "OSF Brier at 24h": 0.1280627068277454,
+      "RNF Brier at 24h": 0.031197947636987307
+    },
+    {
+      "seed": 42,
+      "model": "Cause-specific Cox",
+      "Survival IBS": 0.15545226469997278,
+      "Mean cause IBS": 0.061756834859975525,
+      "TWF Brier at 24h": 0.22522150845483913,
+      "HDF Brier at 24h": 0.09700765360389443,
+      "PWF Brier at 24h": 0.07695323616226202,
+      "OSF Brier at 24h": 0.12563111458389928,
+      "RNF Brier at 24h": 0.031137486606363864
+    },
+    {
+      "seed": 42,
+      "model": "Same survival + pooled causes",
+      "Survival IBS": 0.15496300264561821,
+      "Mean cause IBS": 0.06467451377355259,
+      "TWF Brier at 24h": 0.24576132214242946,
+      "HDF Brier at 24h": 0.10997818222216262,
+      "PWF Brier at 24h": 0.07941000806306345,
+      "OSF Brier at 24h": 0.1281871139979357,
+      "RNF Brier at 24h": 0.03117872499880901
+    },
+    {
+      "seed": 43,
+      "model": "Single-event discrete",
+      "Survival IBS": 0.1541022583621868,
+      "Mean cause IBS": 0.060685679800885524,
+      "TWF Brier at 24h": 0.23504410478395787,
+      "HDF Brier at 24h": 0.09906154457086597,
+      "PWF Brier at 24h": 0.07521066641022812,
+      "OSF Brier at 24h": 0.1317853622721457,
+      "RNF Brier at 24h": 0.029495582255853445
+    },
+    {
+      "seed": 43,
+      "model": "Competing-risk discrete",
+      "Survival IBS": 0.15349204448051437,
+      "Mean cause IBS": 0.05743434743795111,
+      "TWF Brier at 24h": 0.21779824369888667,
+      "HDF Brier at 24h": 0.08673030319749837,
+      "PWF Brier at 24h": 0.07346783085264666,
+      "OSF Brier at 24h": 0.12510243388248188,
+      "RNF Brier at 24h": 0.029103927175094624
+    },
+    {
+      "seed": 43,
+      "model": "Single-event Cox",
+      "Survival IBS": 0.1540024395396714,
+      "Mean cause IBS": 0.06067675791922248,
+      "TWF Brier at 24h": 0.23730538014298028,
+      "HDF Brier at 24h": 0.09852802184255494,
+      "PWF Brier at 24h": 0.07497630776808524,
+      "OSF Brier at 24h": 0.13136421649442187,
+      "RNF Brier at 24h": 0.029501028703641907
+    },
+    {
+      "seed": 43,
+      "model": "Cause-specific Cox",
+      "Survival IBS": 0.15321825761433303,
+      "Mean cause IBS": 0.05740677348687835,
+      "TWF Brier at 24h": 0.21784341354470432,
+      "HDF Brier at 24h": 0.08651138689209817,
+      "PWF Brier at 24h": 0.0734195965894278,
+      "OSF Brier at 24h": 0.12523523644435433,
+      "RNF Brier at 24h": 0.029105329793258673
+    },
+    {
+      "seed": 43,
+      "model": "Same survival + pooled causes",
+      "Survival IBS": 0.15349204448051437,
+      "Mean cause IBS": 0.060680053930092216,
+      "TWF Brier at 24h": 0.23484108680733184,
+      "HDF Brier at 24h": 0.09919381568796064,
+      "PWF Brier at 24h": 0.07520380373617341,
+      "OSF Brier at 24h": 0.13158244111726486,
+      "RNF Brier at 24h": 0.02950874758492782
+    },
+    {
+      "seed": 44,
+      "model": "Single-event discrete",
+      "Survival IBS": 0.1523972291793788,
+      "Mean cause IBS": 0.06289333826578894,
+      "TWF Brier at 24h": 0.23790785773806888,
+      "HDF Brier at 24h": 0.10261818088575382,
+      "PWF Brier at 24h": 0.07771392433962342,
+      "OSF Brier at 24h": 0.1378826263583561,
+      "RNF Brier at 24h": 0.029184969077511617
+    },
+    {
+      "seed": 44,
+      "model": "Competing-risk discrete",
+      "Survival IBS": 0.15241834354186148,
+      "Mean cause IBS": 0.06056814208229261,
+      "TWF Brier at 24h": 0.21839119194306172,
+      "HDF Brier at 24h": 0.09323411336500619,
+      "PWF Brier at 24h": 0.07681280049082599,
+      "OSF Brier at 24h": 0.13319571885324455,
+      "RNF Brier at 24h": 0.02938642636893998
+    },
+    {
+      "seed": 44,
+      "model": "Single-event Cox",
+      "Survival IBS": 0.1528968981654355,
+      "Mean cause IBS": 0.06291233524317172,
+      "TWF Brier at 24h": 0.23877578461720292,
+      "HDF Brier at 24h": 0.10242778691413922,
+      "PWF Brier at 24h": 0.07755627093474049,
+      "OSF Brier at 24h": 0.1378674879606114,
+      "RNF Brier at 24h": 0.02917377795944467
+    },
+    {
+      "seed": 44,
+      "model": "Cause-specific Cox",
+      "Survival IBS": 0.15305554828371443,
+      "Mean cause IBS": 0.06059047339769358,
+      "TWF Brier at 24h": 0.2179669166754237,
+      "HDF Brier at 24h": 0.09322232279668517,
+      "PWF Brier at 24h": 0.07668766096480772,
+      "OSF Brier at 24h": 0.13333867307280575,
+      "RNF Brier at 24h": 0.02934244428709674
+    },
+    {
+      "seed": 44,
+      "model": "Same survival + pooled causes",
+      "Survival IBS": 0.15241834354186148,
+      "Mean cause IBS": 0.06292150520607222,
+      "TWF Brier at 24h": 0.2368658018110823,
+      "HDF Brier at 24h": 0.10309977300572086,
+      "PWF Brier at 24h": 0.07762044138207533,
+      "OSF Brier at 24h": 0.1379372833596076,
+      "RNF Brier at 24h": 0.02919831759061338
+    }
+  ],
+  "policies": [
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 101.03214159037813,
+      "Mean regret vs oracle": 0.2925790060462672,
+      "Mean selected hour": 12.09
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 100.8179733951136,
+      "Mean regret vs oracle": 0.07841081078175699,
+      "Mean selected hour": 12.354
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 101.45310670576396,
+      "Mean regret vs oracle": 0.7135441214321085,
+      "Mean selected hour": 12.354
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 101.14067786353704,
+      "Mean regret vs oracle": 0.40111527920520074,
+      "Mean selected hour": 12.387
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 100.83537266908554,
+      "Mean regret vs oracle": 0.09581008475368798,
+      "Mean selected hour": 12.051
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 102.69294094027265,
+      "Mean regret vs oracle": 1.9533783559408067,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 124.37952039200847,
+      "Mean regret vs oracle": 23.63995780767663,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 95.6645490002863,
+      "Mean regret vs oracle": 0.25151901079500233,
+      "Mean selected hour": 12.277
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 95.49538660592661,
+      "Mean regret vs oracle": 0.08235661643530776,
+      "Mean selected hour": 12.213
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 96.02429293690786,
+      "Mean regret vs oracle": 0.6112629474165476,
+      "Mean selected hour": 12.54
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 95.70434680077133,
+      "Mean regret vs oracle": 0.291316811280026,
+      "Mean selected hour": 12.215
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 95.49538660592661,
+      "Mean regret vs oracle": 0.08235661643530776,
+      "Mean selected hour": 12.213
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 96.77604182240341,
+      "Mean regret vs oracle": 1.3630118329121166,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 120.32831350859932,
+      "Mean regret vs oracle": 24.91528351910804,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 154.7799213985738,
+      "Mean regret vs oracle": 0.4008973821101534,
+      "Mean selected hour": 10.515
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 154.54951267328255,
+      "Mean regret vs oracle": 0.1704886568189057,
+      "Mean selected hour": 12.248
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 154.82645470032398,
+      "Mean regret vs oracle": 0.44743068386031487,
+      "Mean selected hour": 10.962
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 155.35251803271944,
+      "Mean regret vs oracle": 0.9734940162557927,
+      "Mean selected hour": 12.551
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 154.78428062481737,
+      "Mean regret vs oracle": 0.4052566083536835,
+      "Mean selected hour": 10.515
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 156.50728561479238,
+      "Mean regret vs oracle": 2.128261598328706,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 179.1580279711772,
+      "Mean regret vs oracle": 24.779003954713552,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 102.379813878765,
+      "Mean regret vs oracle": 0.39544652967889954,
+      "Mean selected hour": 11.606
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 102.02631580241464,
+      "Mean regret vs oracle": 0.04194845332851641,
+      "Mean selected hour": 11.724
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 102.3930421833736,
+      "Mean regret vs oracle": 0.40867483428746526,
+      "Mean selected hour": 12.167
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 102.35671786973836,
+      "Mean regret vs oracle": 0.3723505206522426,
+      "Mean selected hour": 12.192
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 102.15083058442178,
+      "Mean regret vs oracle": 0.16646323533566248,
+      "Mean selected hour": 11.425
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 104.12057111805439,
+      "Mean regret vs oracle": 2.136203768968256,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 125.47751252029278,
+      "Mean regret vs oracle": 23.493145171206653,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 96.66360536749922,
+      "Mean regret vs oracle": 0.19067313774378689,
+      "Mean selected hour": 11.744
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 96.50947601671598,
+      "Mean regret vs oracle": 0.03654378696054701,
+      "Mean selected hour": 11.539
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 96.77247607898718,
+      "Mean regret vs oracle": 0.29954384923175476,
+      "Mean selected hour": 12.261
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 96.76173155557554,
+      "Mean regret vs oracle": 0.2887993258200962,
+      "Mean selected hour": 12.076
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 96.50947601671598,
+      "Mean regret vs oracle": 0.03654378696054701,
+      "Mean selected hour": 11.539
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 97.9595733155844,
+      "Mean regret vs oracle": 1.4866410858289643,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 121.12814602664328,
+      "Mean regret vs oracle": 24.655213796887868,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 156.7787973750814,
+      "Mean regret vs oracle": 0.7856772070486107,
+      "Mean selected hour": 10.104
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 156.04503180374897,
+      "Mean regret vs oracle": 0.051911635716160046,
+      "Mean selected hour": 11.273
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 156.49341376308496,
+      "Mean regret vs oracle": 0.5002935950521542,
+      "Mean selected hour": 10.706
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 156.48004748236295,
+      "Mean regret vs oracle": 0.486927314330169,
+      "Mean selected hour": 11.74
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 156.88149320494475,
+      "Mean regret vs oracle": 0.8883730369119469,
+      "Mean selected hour": 9.883
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 158.2865687231083,
+      "Mean regret vs oracle": 2.2934485550754893,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 180.59893849563127,
+      "Mean regret vs oracle": 24.60581832759846,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 99.2911785948212,
+      "Mean regret vs oracle": 0.240145147831072,
+      "Mean selected hour": 11.981
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 99.12301569119381,
+      "Mean regret vs oracle": 0.07198224420366711,
+      "Mean selected hour": 12.394
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 99.29678124924442,
+      "Mean regret vs oracle": 0.24574780225427817,
+      "Mean selected hour": 12.217
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 99.19847511942798,
+      "Mean regret vs oracle": 0.14744167243783182,
+      "Mean selected hour": 12.257
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 99.12096221576344,
+      "Mean regret vs oracle": 0.06992876877330685,
+      "Mean selected hour": 12.044
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 100.89242219819565,
+      "Mean regret vs oracle": 1.8413887512055023,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 122.3900093999136,
+      "Mean regret vs oracle": 23.33897595292345,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 94.17670482094873,
+      "Mean regret vs oracle": 0.19832497789763107,
+      "Mean selected hour": 12.119
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 94.04377008110359,
+      "Mean regret vs oracle": 0.06539023805249025,
+      "Mean selected hour": 12.191
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 94.27531798121507,
+      "Mean regret vs oracle": 0.2969381381639664,
+      "Mean selected hour": 12.354
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 94.09539692821654,
+      "Mean regret vs oracle": 0.11701708516546276,
+      "Mean selected hour": 12.12
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 94.04377008110359,
+      "Mean regret vs oracle": 0.06539023805249025,
+      "Mean selected hour": 12.191
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 95.26172476950914,
+      "Mean regret vs oracle": 1.2833449264580594,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 118.678853950401,
+      "Mean regret vs oracle": 24.700474107349933,
+      "Mean selected hour": 24.0
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event discrete",
+      "Mean cost per hour": 152.64397772974567,
+      "Mean regret vs oracle": 0.45157321719464644,
+      "Mean selected hour": 10.479
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Competing-risk discrete",
+      "Mean cost per hour": 152.53360073382714,
+      "Mean regret vs oracle": 0.34119622127611116,
+      "Mean selected hour": 12.229
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Single-event Cox",
+      "Mean cost per hour": 152.79328711486892,
+      "Mean regret vs oracle": 0.6008826023179149,
+      "Mean selected hour": 10.472
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Cause-specific Cox",
+      "Mean cost per hour": 152.53487971399022,
+      "Mean regret vs oracle": 0.3424752014392112,
+      "Mean selected hour": 11.993
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Same survival + pooled causes",
+      "Mean cost per hour": 152.60183360225395,
+      "Mean regret vs oracle": 0.4094290897029429,
+      "Mean selected hour": 10.463
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 12h",
+      "Mean cost per hour": 154.20679405621794,
+      "Mean regret vs oracle": 2.0143895436669155,
+      "Mean selected hour": 12.0
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "policy": "Fixed 24h",
+      "Mean cost per hour": 176.7151972108531,
+      "Mean regret vs oracle": 24.52279269830207,
+      "Mean selected hour": 24.0
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.2141681952645102,
+      "Paired 95% CI lower": 0.17362257455198626,
+      "Paired 95% CI upper": 0.2638165599728543
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.3124288422269077,
+      "Paired 95% CI lower": 0.24381118157249881,
+      "Paired 95% CI upper": 0.3837750476620446
+    },
+    {
+      "seed": 42,
+      "scenario": "Default costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.01739927397193098,
+      "Paired 95% CI lower": 0.000939941648261862,
+      "Paired 95% CI upper": 0.0361380160736358
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.1691623943596946,
+      "Paired 95% CI lower": 0.1451345230588644,
+      "Paired 95% CI upper": 0.19683832287376826
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.3199461361365215,
+      "Paired 95% CI lower": 0.2674335250607062,
+      "Paired 95% CI upper": 0.37528019059973605
+    },
+    {
+      "seed": 42,
+      "scenario": "Equal cause costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.0,
+      "Paired 95% CI lower": 0.0,
+      "Paired 95% CI upper": 0.0
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.2304087252912477,
+      "Paired 95% CI lower": 0.20009430342624432,
+      "Paired 95% CI upper": 0.2592031933060569
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": -0.5260633323954776,
+      "Paired 95% CI lower": -0.6283357973651204,
+      "Paired 95% CI upper": -0.4165476034641866
+    },
+    {
+      "seed": 42,
+      "scenario": "High heat-failure cost",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.2347679515347778,
+      "Paired 95% CI lower": 0.2059314507387924,
+      "Paired 95% CI upper": 0.26400449287792904
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.35349807635038316,
+      "Paired 95% CI lower": 0.2937530589377196,
+      "Paired 95% CI upper": 0.4094639775922447
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.03632431363522258,
+      "Paired 95% CI lower": -0.007854465949365718,
+      "Paired 95% CI upper": 0.08054792245965382
+    },
+    {
+      "seed": 43,
+      "scenario": "Default costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.12451478200714608,
+      "Paired 95% CI lower": 0.10784589611289726,
+      "Paired 95% CI upper": 0.14535371721807533
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.1541293507832399,
+      "Paired 95% CI lower": 0.12376885837741511,
+      "Paired 95% CI upper": 0.18241273437581218
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.010744523411658487,
+      "Paired 95% CI lower": -0.02062995791424699,
+      "Paired 95% CI upper": 0.04339511006240861
+    },
+    {
+      "seed": 43,
+      "scenario": "Equal cause costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.0,
+      "Paired 95% CI lower": 0.0,
+      "Paired 95% CI upper": 0.0
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.7337655713324507,
+      "Paired 95% CI lower": 0.7007714952946459,
+      "Paired 95% CI upper": 0.770172700605727
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.013366280721985212,
+      "Paired 95% CI lower": -0.05979050932147324,
+      "Paired 95% CI upper": 0.08860327929194683
+    },
+    {
+      "seed": 43,
+      "scenario": "High heat-failure cost",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.8364614011957867,
+      "Paired 95% CI lower": 0.8013958136774454,
+      "Paired 95% CI upper": 0.8727865261623485
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.16816290362740488,
+      "Paired 95% CI lower": 0.13269538429911767,
+      "Paired 95% CI upper": 0.20235674437514012
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.09830612981644635,
+      "Paired 95% CI lower": 0.07377810408785059,
+      "Paired 95% CI upper": 0.12799630334442966
+    },
+    {
+      "seed": 44,
+      "scenario": "Default costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": -0.002053475430360258,
+      "Paired 95% CI lower": -0.015977229592351663,
+      "Paired 95% CI upper": 0.012920437239169405
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.13293473984514081,
+      "Paired 95% CI lower": 0.11354025158478288,
+      "Paired 95% CI upper": 0.15379185217066213
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.17992105299850367,
+      "Paired 95% CI lower": 0.1534350767021738,
+      "Paired 95% CI upper": 0.20698746152516997
+    },
+    {
+      "seed": 44,
+      "scenario": "Equal cause costs",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.0,
+      "Paired 95% CI lower": 0.0,
+      "Paired 95% CI upper": 0.0
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event discrete minus Competing-risk discrete",
+      "Mean saving per hour": 0.11037699591853525,
+      "Paired 95% CI lower": 0.04805783248371228,
+      "Paired 95% CI upper": 0.17488307383307572
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "comparison": "Single-event Cox minus Cause-specific Cox",
+      "Mean saving per hour": 0.25840740087870373,
+      "Paired 95% CI lower": 0.19959647115024398,
+      "Paired 95% CI upper": 0.3105919307180803
+    },
+    {
+      "seed": 44,
+      "scenario": "High heat-failure cost",
+      "comparison": "Same survival + pooled causes minus Competing-risk discrete",
+      "Mean saving per hour": 0.06823286842683177,
+      "Paired 95% CI lower": 0.005430615910735558,
+      "Paired 95% CI upper": 0.13150554803853326
+    }
+  ]
+}
