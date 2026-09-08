@@ -748,7 +748,10 @@ elif page == "Timing & maintenance lab":
     plan = maintenance_cost(s[0], f[0], preventive, costs)
     best = plan.loc[plan["Cost per operating hour"].idxmin()]
     median = np.flatnonzero(s[0] <= 0.5)
-    k = int(np.argmax(f[0, -1]))
+
+    # Evaluate dominant cause at the recommended maintenance hour.
+    best_hour = int(best["Maintenance hour"])
+    k = int(np.argmax(f[0, best_hour]))
 
     section_header(
         "Recommended policy",
@@ -779,7 +782,7 @@ elif page == "Timing & maintenance lab":
         card(
             "Dominant cause",
             NAMES[k],
-            f"{f[0, -1, k]:.1%} cumulative incidence",
+            f"{f[0, best_hour, k]:.1%} cumulative incidence at hour {best_hour}",
         )
 
     frame = pd.DataFrame(f[0], columns=NAMES)
